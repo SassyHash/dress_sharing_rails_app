@@ -35,6 +35,7 @@ gem 'jquery-rails'
 # gem 'binding_of_caller'
 # gem 'meta_request'
 gem 'bcrypt-ruby', '~> 3.0.1'
+gem 'simple_form'
 # gem 'calendar_date_select'
 
 # To use Jbuilder templates for JSON
