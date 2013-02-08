@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new
+    @user.update_attributes(params[:user])
   end
 
   def edit

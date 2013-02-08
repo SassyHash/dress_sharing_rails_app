@@ -1,0 +1,14 @@
+<title>Sign In</title>
+<h1>Sign In to DressShare</h1>
+
+<div class = 'row'>
+  <div class = "span6 offset3">
+    <%= form_for(@user) do |f| %>
+      <%= f.label :email, "Dartmouth Email" %>
+      <%= f.text_field :email %><br>
+      <%= f.label :password %>
+      <%= f.password_field :password %><br>
+      <%= f.submit "Sign In" %>
+    <% end %>
+  </div>
+</div>
