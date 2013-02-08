@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207175035) do
+ActiveRecord::Schema.define(:version => 20130207191216) do
 
   create_table "dresses", :force => true do |t|
     t.integer "owner_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20130207175035) do
     t.integer "rent"
   end
 
+  add_index "dresses", ["body_type"], :name => "index_dresses_on_body_type"
   add_index "dresses", ["owner_id"], :name => "index_dresses_on_owner_id"
   add_index "dresses", ["rent"], :name => "index_dresses_on_rent"
   add_index "dresses", ["size"], :name => "index_dresses_on_size"
@@ -42,8 +43,9 @@ ActiveRecord::Schema.define(:version => 20130207175035) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "points"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "password_digest"
   end
 
   add_index "users", ["last_name"], :name => "index_users_on_last_name"

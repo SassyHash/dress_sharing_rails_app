@@ -31,11 +31,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'better_errors'
-gem 'binding_of_caller'
-gem 'meta_request'
+# gem 'better_errors'
+# gem 'binding_of_caller'
+# gem 'meta_request'
 gem 'bcrypt-ruby', '~> 3.0.1'
-gem 'calendar_date_select'
+# gem 'calendar_date_select'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
