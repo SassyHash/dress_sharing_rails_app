@@ -9,15 +9,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(session[:current_user])
+    @user = User.find(session[:current_user_id])
   end
 
   def update
-    @user = User.find(session[:current_user])
+    @user = User.find(session[:current_user_id])
   end
 
   def destroy
-    @user = User.find(session[:current_user])
+    @user = User.find(session[:current_user_id])
   end
 
   def index
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:current_user])
+    @user = User.find(session[:current_user_id])
   end
 
 end

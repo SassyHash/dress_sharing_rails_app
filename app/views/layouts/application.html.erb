@@ -14,7 +14,11 @@
         <%= link_to "Whiteboard", signin_path, class: "brand" %>
         <ul class="nav">
           <li><%= link_to "Home", signin_path %></li>
-          <li><%= link_to "Sign-In", signin_path %></li>
+          <%if session[:session_token] == nil %>
+            <li><%= link_to "Sign-In", signin_path %></li>
+          <%else%>
+            <li><%= link_to "Sign-Out", signout_path %></li>
+          <%end%>
           <li><%= link_to "About Us", aboutus_path %></li>
           <li><%= link_to "Contact",  contact_path %></li>
           <li><%= link_to "Sign-Up", signup_path %></li>

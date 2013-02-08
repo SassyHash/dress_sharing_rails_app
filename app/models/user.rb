@@ -4,7 +4,7 @@ class User <ActiveRecord::Base
 
   has_secure_password
 
-  has_many :dresses
+  has_many :dresses, foreign_key: :owner_id
   belongs_to :rental
 
   before_save { |user| user.email = email.downcase }

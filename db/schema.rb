@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130207191216) do
+ActiveRecord::Schema.define(:version => 20130208011915) do
 
   create_table "dresses", :force => true do |t|
     t.integer "owner_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20130207191216) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
+    t.string   "session_token"
   end
 
   add_index "users", ["last_name"], :name => "index_users_on_last_name"

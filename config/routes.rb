@@ -9,5 +9,6 @@ DressSharing::Application.routes.draw do
   match '/aboutus', to: 'pages#about'
   match '/contact', to: 'pages#contact'
 
-  root to: '/signin'
+  root to: 'sessions#new'
+
 end
