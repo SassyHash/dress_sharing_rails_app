@@ -1,10 +1,11 @@
 <title>Sign Up</title>
 <h1>Sign Up for DressShare<br>
   <small>Look Fabulous on Nickels and Dimes</small></h1>
-
+<hr>
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
+      <%= render :partial => 'shared/error_messages', :locals => {:object => @user} %>
       <%= f.label :email, "Dartmouth Email Address" %>
       <%= f.text_field :email %><br>
       <%= f.label :first_name, "First Name" %>

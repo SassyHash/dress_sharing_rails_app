@@ -11,19 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208011915) do
+ActiveRecord::Schema.define(:version => 20130208203022) do
+
+  create_table "body_type_dresses", :force => true do |t|
+    t.integer "dress_id"
+    t.integer "body_type_id"
+  end
+
+  create_table "body_types", :force => true do |t|
+    t.string "label"
+  end
 
   create_table "dresses", :force => true do |t|
     t.integer "owner_id"
     t.string  "brand"
     t.string  "size"
     t.string  "color"
-    t.string  "body_type"
     t.text    "notes"
     t.integer "rent"
+    t.binary  "photo_blob"
   end
 
-  add_index "dresses", ["body_type"], :name => "index_dresses_on_body_type"
   add_index "dresses", ["owner_id"], :name => "index_dresses_on_owner_id"
   add_index "dresses", ["rent"], :name => "index_dresses_on_rent"
   add_index "dresses", ["size"], :name => "index_dresses_on_size"

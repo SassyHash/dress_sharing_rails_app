@@ -5,7 +5,6 @@ class CreateDresses < ActiveRecord::Migration
       t.string :brand
       t.string :size
       t.string :color
-      t.string :body_type
       t.text :notes
       t.integer :rent
     end

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :current_user, :except => [:new, :create]
+  before_filter :require_log_in, :except => [:new, :create]
   def new
     @user = User.new
   end
@@ -23,7 +23,8 @@ class SessionsController < ApplicationController
     @user = User.find_by_session_token(session[:session_token])
     @user.log_out
     session[:session_token] = nil
-    redirect_to 'new'
+    session[:current_user_id] = nil
+    redirect_to new_session_path
   end
 
 end

@@ -1,26 +1,34 @@
 <title>Your Closet</title>
-<h1>Hi, <%= @user.first_name %></h1>
-<h2>Welcome to DressShare.</h2>
+<h1>Hi, <%= @user.first_name %>. Welcome to DressShare.</h1>
 
-<p>You have <%= pluralize(@user.dresses.count, "dress") %> in your closet.</p>
+<h4>  You have <%= pluralize(@user.dresses.count, "dress") %> in your closet.</h4>
 
-<ul>
-<% @user.dresses.each_with_index do |dress, i| %>
-  <li>
-    <ul><b>
-    <%= "Dress #{i+1}" %></b>
-    <small><%= link_to "Edit Dress", edit_dress_path(dress) %></small>
-    <li>Brand: <%= dress.brand %></li>
-    <li>Size: <%= dress.size %></li>
-    <li>Flattering On:<%= dress.body_type %></li>
-    <li>Comments: <%= dress.notes %></li>
-    <li>Rental Price: <%= dress.rent %></li>
-  </li>
+<% if @user.dresses.empty? %>
+<% else %>
+  <ul>
+  <% @user.dresses.each_with_index do |dress, i| %>
+    <li>
+      <ul><b>
+      <%= link_to "Dress #{i+1}", dress_path(dress) %></b>
+      <li>Brand: <%= dress.brand %></li>
+      <li>Color: <%= dress.color %></li>
+      <li>Size: <%= dress.size %></li>
+      <li>Flattering On: <%= dress.body_types_string %></li>
+      <li>Rental Price: <%= dress.rent %></li>
+      <li>Comments: <%= dress.notes %></li>
+
+      <small><%= link_to "Edit Dress", edit_dress_path(dress) %></small>
+      </ul>
+    </li>
+    <hr>
+  <% end %>
+  </ul>
 <% end %>
-</ul>
 <br>
 <br>
 <br>
+<div class= row>
 <%= link_to "Add A New Dress", new_dress_path %>
 <br>
 <%= link_to "Rent A Dress", dresses_path %>
+</div>

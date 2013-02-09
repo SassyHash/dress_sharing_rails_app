@@ -1,16 +1,18 @@
 <title>The Closet</title>
 
 <h1>The Closet</h1>
-<%= @dresses.each do |dress| %>
-  <li>
+<ul>
+<% @dresses.each_with_index do |dress, i| %>
     <ul><b>
-    <%= "Dress #{i+1}" %></b>
+    <%= link_to "Dress #{i+1} ", dress_path(dress) %></b>
     <small><%= link_to "Edit Dress", edit_dress_path(dress) %></small>
     <li>Brand: <%= dress.brand %></li>
+    <li>Color: <%= dress.color %></li>
     <li>Size: <%= dress.size %></li>
-    <li>Flattering On:<%= dress.body_type %></li>
-    <li>Comments: <%= dress.notes %></li>
+
     <li>Rental Price: <%= dress.rent %></li>
-  </li>
+    <li>Comments: <%= dress.notes %></li>
+    </ul>
+    <hr>
 <% end %>
 </ul>

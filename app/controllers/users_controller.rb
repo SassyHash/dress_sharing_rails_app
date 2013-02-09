@@ -4,8 +4,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
-    @user.update_attributes(params[:user])
+    @user = User.new(params[:user])
+    if @user.save
+      @user.update_attributes(:session_token => SecureRandom.base64)
+      session[:current_user_id] = @user.id
+      session[:session_token] = @user.session_token
+      redirect_to user_path(@user)
+    else
+      render 'new'
+    end
   end
 
   def edit
