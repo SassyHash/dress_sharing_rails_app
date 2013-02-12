@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       @user.update_attributes(:session_token => SecureRandom.base64)
       session[:current_user_id] = @user.id
       session[:session_token] = @user.session_token
+      @user.apikey = SecureRandom.base64
       redirect_to user_path(@user)
     else
       render 'new'

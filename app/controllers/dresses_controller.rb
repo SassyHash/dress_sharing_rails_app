@@ -1,4 +1,5 @@
 class DressesController < ApplicationController
+  before_filter :require_log_in, :except => [:new, :create, :destroy]
   def new
     @dress= Dress.new
   end
@@ -35,10 +36,19 @@ class DressesController < ApplicationController
 
   def index
    @dresses = Dress.all
+   respond_to do |format|
+      format.html {render :show}
+      format.json {render :json => @dresses}
+    end
   end
 
   def show
     @dress = Dress.find(params[:id])
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render :json => @dress}
+    end
+
   end
 
   def photo

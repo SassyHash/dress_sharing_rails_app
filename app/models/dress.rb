@@ -20,4 +20,10 @@ class Dress <ActiveRecord::Base
     end
     labels.join(", ")
   end
+
+  def as_json(options={})
+    attributes = super(:only => [:owner_id, :brand, :color, :size, :notes, :rent])
+    attributes[:body_type] = self.body_types_string
+    attributes
+  end
 end

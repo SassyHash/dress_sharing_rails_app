@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :require_log_in, :except => [:new, :create]
+  
   def new
     @user = User.new
   end
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     @user.log_out
     session[:session_token] = nil
     session[:current_user_id] = nil
-    redirect_to new_session_path
+    redirect_to signin_path
   end
 
 end

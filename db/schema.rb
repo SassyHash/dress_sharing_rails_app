@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130208203022) do
+ActiveRecord::Schema.define(:version => 20130212184821) do
 
   create_table "body_type_dresses", :force => true do |t|
     t.integer "dress_id"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20130208203022) do
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"
     t.string   "session_token"
+    t.string   "apikey"
   end
 
   add_index "users", ["last_name"], :name => "index_users_on_last_name"
